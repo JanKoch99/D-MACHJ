@@ -1,0 +1,37 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/d-machj/client/node_modules
+/d-machj/client/.pnp
+/d-machj/client/.pnp.js
+
+# testing
+/d-machj/client/coverage
+
+# next.js
+/d-machj/client/.next/
+/d-machj/client/out/
+
+# production
+/d-machj/client/build
+
+# misc
+/d-machj/client/.DS_Store
+/d-machj/client/*.pem
+
+# debug
+/d-machj/client/npm-debug.log*
+/d-machj/client/yarn-debug.log*
+/d-machj/client/yarn-error.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+/d-machj/client/.vercel
+
+# typescript
+*.tsbuildinfo
