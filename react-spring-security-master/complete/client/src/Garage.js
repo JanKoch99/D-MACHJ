@@ -74,7 +74,7 @@ class Garage extends React.Component {
 
     return <Row>
       <Jumbotron>
-        <h1>Welcome to the Garage</h1>
+        <h1>Welcome to the Praxis</h1>
         {logoutButton}
       </Jumbotron>
       <Row>
