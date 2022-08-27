@@ -37,6 +37,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('./fonts/NunitoSans/NunitoSans-Bold.ttf') format("truetype");;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 .content {
   @apply max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8;
