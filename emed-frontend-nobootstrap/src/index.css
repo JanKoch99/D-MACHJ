@@ -72,3 +72,11 @@ h5, .h5 {
 h6, .h6 {
   @apply text-sm md:text-lg;
 }
+
+.edem-underline {
+  @apply relative;
+}
+.edem-underline:after {
+  @apply absolute w-full h-0.5 bg-current left-0 -bottom-0.5;
+  content: '';
+}
