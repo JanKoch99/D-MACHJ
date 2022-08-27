@@ -16,36 +16,6 @@ class AddVehicleForm extends React.Component {
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    const {name, make, model, driver} = this.state;
-
-    if (!name || !make.id || !model.id || !driver.id) {
-      console.warn("missing required field!");
-      return;
-    }
-    this.props.onSubmit({name, make, model, driver});
-    this.setState({name: '', make: {id: ''}, model: {id: ''}, driver: {id: ''}});
-  };
-
-  handleNameChange = (event) => {
-    this.setState({name: event.target.value});
-  };
-
-  handleMakeChange = (event) => {
-    this.setState({make: {id: event.target.value}});
-  };
-
-  handleModelChange = (event) => {
-    this.setState({model: {id: event.target.value}});
-  };
-
-  handleDriverChange = (event) => {
-    this.setState({driver: {id: event.target.value}});
-  };
-
-
   render() {
 
     function renderSelectList(item) {
@@ -62,68 +32,68 @@ class AddVehicleForm extends React.Component {
           <Row>
             <h4>Zustellender Arzt</h4>
             <Col md={3}>
-              <input className="form-control" name="name" type="text" value={ this.state.name }
-                     placeholder="Enter a name..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="name" type="text"
+                     placeholder="Enter a name..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="zsr-nr" type="text" value={ this.state.zsr }
-                     placeholder="Enter a ZSR-Nr...." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="zsr-nr" type="text"
+                     placeholder="Enter a ZSR-Nr...." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="praxis" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Praxis..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="praxis" type="text"
+                     placeholder="Enter a Praxis..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="praxisadresse" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Praxisadresse..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="praxisadresse" type="text"
+                     placeholder="Enter a Praxisadresse..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="austellungsdatum" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Ausstellunsdatum..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="austellungsdatum" type="text"
+                     placeholder="Enter a Ausstellunsdatum..." />
             </Col>
             <h4>Patient</h4>
             <Col md={3}>
-              <input className="form-control" name="vorname" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Vorname..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="vorname" type="text"
+                     placeholder="Enter a Vorname..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="nachname" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Nachname..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="nachname" type="text"
+                     placeholder="Enter a Nachname..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="geburtsdatum" type="text" value={ this.state.zsr }
-                     placeholder="Enter a geburtsdatum..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="geburtsdatum" type="text"
+                     placeholder="Enter a geburtsdatum..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="geschlecht" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Geschlecht..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="geschlecht" type="text"
+                     placeholder="Enter a Geschlecht..." />
             </Col>
             <Col md={3}>
-              <input className="form-control" name="adresse" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Adresse..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="adresse" type="text"
+                     placeholder="Enter a Adresse..." />
             </Col>
             <h4>Medikament</h4>
             <Col md={3}>
-              <input className="form-control" name="name" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Name..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="name" type="text"
+                     placeholder="Enter a Name..." />
             </Col>
             <Col md={3}>
-              <select className="form-control" name="form" value={this.state.make.id} onChange={this.handleMakeChange}>
-                {this.props.makes.map(renderSelectList)}
+              <select className="form-control" name="form"  onChange={this.handleMakeChange}>
+
               </select>
             </Col>
             <Col md={3}>
               <label>
                 Anzahl:
-                <input className="form-control" name="zsr" type="number" value={ this.state.zsr }
-                       defaultValue={"1"} onChange={ this.handleNameChange }/>
+                <input className="form-control" name="zsr" type="number"
+                       defaultValue={"1"} />
               </label>
             </Col>
             <Col md={3}>
               <label>
                 Einheit:
-                <select className="form-control" name="einheit" value={this.state.make.id} onChange={this.handleMakeChange}>
-                  {this.props.makes.map(renderSelectList)}
+                <select className="form-control" name="einheit" onChange={this.handleMakeChange}>
+
                 </select>
               </label>
 
@@ -132,23 +102,23 @@ class AddVehicleForm extends React.Component {
               <label>
                 Art der Medikation
               </label>
-              <select className="form-control" name="einheit" value={this.state.make.id} onChange={this.handleMakeChange}>
-                {this.props.makes.map(renderSelectList)}
+              <select className="form-control" name="einheit" onChange={this.handleMakeChange}>
+
               </select>
             </Col>
             <Col md={3}>
               <label>GültigkeitVon:
-                <input className="form-control" name="zsr" type="date" value={ this.state.zsr }
-                                           onChange={ this.handleNameChange }/>
+                <input className="form-control" name="zsr" type="date"
+                                           />
               </label>
               <label>Bis:
-                <input className="form-control" name="zsr" type="date" value={ this.state.zsr }
-                       onChange={ this.handleNameChange }/>
+                <input className="form-control" name="zsr" type="date"
+                       />
               </label>
             </Col>
             <Col md={3}>
-              <input className="form-control" name="zsr" type="text" value={ this.state.zsr }
-                     placeholder="Enter a Hinweiss..." onChange={ this.handleNameChange }/>
+              <input className="form-control" name="zsr" type="text"
+                     placeholder="Enter a Hinweiss..." />
             </Col>
 
             <h5 >Anwendung</h5>
@@ -156,29 +126,29 @@ class AddVehicleForm extends React.Component {
             <Col md={3}>
               <label>
                 Morgen
-                <input className="form-control" name="morgen" type="number" value={ this.state.zsr }
-                       defaultValue={"0"} onChange={ this.handleNameChange }/>
+                <input className="form-control" name="morgen" type="number"
+                       defaultValue={"0"} />
               </label>
             </Col>
             <Col md={3}>
               <label>
                 Mittag
-                <input className="form-control" name="mittag" type="number" value={ this.state.zsr }
-                       defaultValue={"0"} onChange={ this.handleNameChange }/>
+                <input className="form-control" name="mittag" type="number"
+                       defaultValue={"0"} />
               </label>
             </Col>
             <Col md={3}>
               <label>
                 Abend
-                <input className="form-control" name="abend" type="number" value={ this.state.zsr }
-                       defaultValue={"0"} onChange={ this.handleNameChange }/>
+                <input className="form-control" name="abend" type="number"
+                       defaultValue={"0"} />
               </label>
             </Col>
             <Col md={3}>
               <label>
                 Zur Nacht
-                <input className="form-control" name="zur-nacht" type="number" value={ this.state.zsr }
-                       defaultValue={"0"} onChange={ this.handleNameChange }/>
+                <input className="form-control" name="zur-nacht" type="number"
+                       defaultValue={"0"} />
               </label>
             </Col>
             <Col md={2}>
