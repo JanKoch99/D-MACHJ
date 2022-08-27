@@ -11,6 +11,10 @@ class QrcodeScanner extends Component {
 
     this.handleScan = this.handleScan.bind(this)
   }
+  getText(){
+    console.log(this.state.result)
+
+  }
   handleScan(data){
     this.setState({
       result: data,
@@ -33,7 +37,7 @@ class QrcodeScanner extends Component {
           onError={this.handleError}
           onScan={this.handleScan}
           />
-        <p>{this.state.result!=="No result" && this.state.result.text }</p>
+        <p>{this.getText()}</p>
       </div>
     )
   }
