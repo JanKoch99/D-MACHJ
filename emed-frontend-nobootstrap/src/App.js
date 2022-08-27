@@ -4,6 +4,7 @@ import Login from './Login';
 import Home from './Home';
 import { IconUser, IconMenu2 } from '@tabler/icons';
 import logo from './logo.svg';
+import Qrcode from "./Qrcode";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="qrcode" element={<Qrcode/>}/>
       </Routes>
     </div>
   );
