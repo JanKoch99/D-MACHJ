@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Epilogue';
+  src: url('./fonts/Epilogue/Epilogue-Regular.woff') format("woff");;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Epilogue';
+  src: url('./fonts/Epilogue/Epilogue-SemiBold.woff') format("woff");;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Epilogue';
+  src: url('./fonts/Epilogue/Epilogue-Bold.woff') format("woff");;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('./fonts/NunitoSans/NunitoSans-Regular.ttf') format("truetype");;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('./fonts/NunitoSans/NunitoSans-SemiBold.ttf') format("truetype");;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+.content {
+  @apply max-w-[1280px] mx-auto px-5 sm:px-6 lg:px-8;
+}
+
+body {
+  @apply text-gray-700;
+}
+
+p {
+  line-height: 1.8 !important;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  @apply font-headline text-gray-800 font-bold;
+}
+
+h1, .h1 {
+  @apply text-3xl md:text-5xl;
+}
+h2, .h2 {
+  @apply text-2xl md:text-4xl;
+}
+h3, .h3 {
+  @apply text-xl md:text-3xl;
+}
+h4, .h4 {
+  @apply text-lg md:text-2xl;
+}
+h5, .h5 {
+  @apply text-base md:text-xl;
+}
+h6, .h6 {
+  @apply text-sm md:text-lg;
+}
