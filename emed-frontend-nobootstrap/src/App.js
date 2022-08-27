@@ -4,6 +4,8 @@ import Home from './Home';
 import RezeptForm from "./RezeptForm";
 import Qrcode from "./Qrcode";
 import QrcodeScanner from "./QrcodeScanner";
+import ScanFail from "./pharmacy/scanFail";
+import ScanVerify from "./pharmacy/scanVerify";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path="rezept-form" element={<RezeptForm />} />
       <Route path="qrcode" element={<Qrcode/>}/>
       <Route path="qrcode-scan" element={<QrcodeScanner/>}/>
+      <Route path="pharmacy/scan-fail" element={<ScanFail/>}/>
+      <Route path="pharmacy/scan-verify" element={<ScanVerify/>}/>
     </Routes>
   );
 }
