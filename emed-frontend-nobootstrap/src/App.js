@@ -6,6 +6,7 @@ import Qrcode from "./Qrcode";
 import QrcodeScanner from "./QrcodeScanner";
 import ScanFail from "./pharmacy/scanFail";
 import ScanVerify from "./pharmacy/scanVerify";
+import Recipe from "./pharmacy/recipe";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="qrcode-scan" element={<QrcodeScanner/>}/>
       <Route path="pharmacy/scan-fail" element={<ScanFail/>}/>
       <Route path="pharmacy/scan-verify" element={<ScanVerify/>}/>
+      <Route path="pharmacy/recipe" element={<Recipe/>}/>
     </Routes>
   );
 }
