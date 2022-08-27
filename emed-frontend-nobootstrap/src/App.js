@@ -7,12 +7,15 @@ import QrcodeScanner from "./QrcodeScanner";
 import ScanFail from "./pharmacy/scanFail";
 import ScanVerify from "./pharmacy/scanVerify";
 import Recipe from "./pharmacy/recipe";
+import {useState} from "react";
 
 function App() {
-  return (
+    const [token, setToken] = useState();
+
+    return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login setToken={setToken}/>} />
       <Route path="rezept-form" element={<RezeptForm />} />
       <Route path="qrcode" element={<Qrcode/>}/>
       <Route path="qrcode-scan" element={<QrcodeScanner/>}/>
