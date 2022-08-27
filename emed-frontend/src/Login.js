@@ -30,7 +30,6 @@ const Login = ({userDetails, error, inputChangeHandler, onSubmit}) => {
                   <Button bsStyle="success" type="submit">Login</Button>
                 </FormGroup>
               </Form>
-
             </Col>
           </Row>
         </Row>
