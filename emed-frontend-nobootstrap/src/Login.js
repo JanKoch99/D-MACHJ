@@ -12,66 +12,66 @@ function Login() {
       </div>
       <div className="bg-white rounded-t-xl py-10">
         <div className="content">
-            <form action="#" method="POST">
-              <div className="space-y-6">
+          <form action="#" method="POST">
+            <div className="space-y-6">
+              <SimpleInput 
+                label="E-Mail"
+                name="email"
+                type="email"
+                placeholder="Max Mustermann"
+              />
+              <div>
                 <SimpleInput 
-                  label="E-Mail"
-                  name="email"
-                  type="email"
-                  placeholder="Max Mustermann"
+                  label="Passwort"
+                  name="password"
+                  type="password"
                 />
-                <div>
-                  <SimpleInput 
-                    label="Passwort"
-                    name="password"
-                    type="password"
-                  />
-                  <div className="flex justify-end mt-3">
-                    <Link to="#" className="text-sm font-semibold text-gray-600">
-                      Forgot your password?
-                    </Link>
-                  </div>
+                <div className="flex justify-end mt-3">
+                  <Link to="#" className="text-sm font-semibold text-gray-600">
+                    Forgot your password?
+                  </Link>
                 </div>
               </div>
-              <div className="mt-12">
-                <EmedButton
-                  size="large"
-                >
-                  Anmelden
-                </EmedButton>
-              </div>
-            </form>
+            </div>
+            <div className="mt-12">
+              <EmedButton
+                size="large"
+              >
+                Anmelden
+              </EmedButton>
+            </div>
+          </form>
 
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Oder fahre fort mit</span>
-                </div>
+          <div className="mt-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300" />
               </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">Oder fahre fort mit</span>
+              </div>
+            </div>
 
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                <Link
-                  to="#"
-                  className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded bg-white text-sm text-gray-700"
-                >
-                  <IconBrandApple size={20}/>
-                </Link>
-                <Link
-                  to="#"
-                  className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded bg-white text-sm text-gray-700"
-                >
-                  <IconBrandTwitter size={20}/>
-                </Link>
-                <Link
-                  to="#"
-                  className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded bg-white text-sm text-gray-700"
-                >
-                  <IconBrandGoogle size={20}/>
-                </Link>
-              </div>
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              <Link
+                to="#"
+                className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded bg-white text-sm text-gray-700"
+              >
+                <IconBrandApple size={20}/>
+              </Link>
+              <Link
+                to="#"
+                className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded bg-white text-sm text-gray-700"
+              >
+                <IconBrandTwitter size={20}/>
+              </Link>
+              <Link
+                to="#"
+                className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded bg-white text-sm text-gray-700"
+              >
+                <IconBrandGoogle size={20}/>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
