@@ -2,6 +2,7 @@ import React from 'react'
 import EmedButton from '../components/emedButton';
 import Progress from '../components/layout/progress';
 import { Disclosure } from '@headlessui/react'
+import { IconChevronDown } from '@tabler/icons'
 
 const medications = [
   {
@@ -17,6 +18,11 @@ const medications = [
     additional: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr'
   }
 ]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 function Recipe() {
   return (
     <Progress
@@ -60,7 +66,13 @@ function Recipe() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="text-left w-full flex justify-between items-start text-gray-400">
-                        <h1>Auf</h1>
+                        Mehr
+                        <span className="ml-6 h-7 flex items-center">
+                          <IconChevronDown
+                            className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform')}
+                            aria-hidden="true"
+                          />
+                        </span>
                       </Disclosure.Button>
                       <Disclosure.Panel as="dd" className="mt-2 pr-12">
                         cooool
