@@ -8,17 +8,7 @@ import { Post } from './models/post.model';
 
 import cors from 'cors';
 import { AdminController } from './controllers/admin.controller';
-import { PostController } from './controllers/post.controller';
-import { Orders } from './models/orders.model';
-import { Product } from './models/product.model';
-import { ProductController } from './controllers/product.controller';
-import { OrderController } from './controllers/order.controller';
-import { Vote } from './models/vote.model';
-import { VoteController } from './controllers/vote.controller';
-import { Comment } from './models/comment.model';
-import { CommentController } from './controllers/comment.controller';
-import {PReview} from './models/p_review.model';
-import {ReviewController} from './controllers/p_review.controller';
+import {PostController} from './controllers/post.controller';
 
 // enable if in testing mode
 export let testingMode = false;
@@ -26,19 +16,14 @@ export let listener: any = null;
 
 export const sequelize: Sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: testingMode ? 'db_test.sqlite' : 'db.sqlite',
+    storage: 'db.sqlite',
     logging: false // can be set to true for debugging
 });
 
 const port = process.env.PORT || 3000;
 
-Vote.initialize(sequelize);
 Post.initialize(sequelize); // create the new table! // step 1
 User.initialize(sequelize);
-Product.initialize(sequelize);
-Orders.initialize(sequelize);
-Comment.initialize(sequelize);
-PReview.initialize(sequelize);
 
 const options: cors.CorsOptions = {
     allowedHeaders: [
@@ -54,7 +39,9 @@ const options: cors.CorsOptions = {
     preflightContinue: false,
 };
 
+
 sequelize.sync({ force: false }).then(async () => {
+    /*
     const fs = require('fs');
     const dir = './build/uploads';
     if (!fs.existsSync(dir)) {
@@ -91,20 +78,6 @@ sequelize.sync({ force: false }).then(async () => {
             });
         }
 
-        const getRandCategory = (index: number) => {
-            const res = index % 4;
-            switch (res) {
-                case 1:
-                    return 'Ethereum';
-                case 2:
-                    return 'Cardano';
-                case 3:
-                    return 'Polkadot';
-                default:
-                    return 'Bitcoin';
-            }
-        };
-
         for (let i = 0; i < 12; i++) {
             Post.create({
                 id: null,
@@ -120,9 +93,10 @@ sequelize.sync({ force: false }).then(async () => {
                 reported: i % 1
             });
         }
+
+ */
         server.emit('serverStarted');
         console.log(`server listening at http://localhost:${port}`);   // indicate that the server has started
-    });
 });
 export const server = express()
     .use(cors())
@@ -134,11 +108,6 @@ export const server = express()
     .use('/admin', AdminController)
     // first of all you have to set the new port here
     .use('/post', PostController) // step 2 / insert new controller
-    .use('/comment', CommentController)
-    .use('/product', ProductController)
-    .use('/orders', OrderController)
-    .use('/vote', VoteController)
-    .use('/review', ReviewController)
     .options('*', cors(options))
     .use('/uploads', express.static(__dirname + '/uploads'))
     // this is the message you get if you open http://localhost:3000/ when the server is running
