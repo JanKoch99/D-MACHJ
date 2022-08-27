@@ -7,6 +7,11 @@ import {Component, useState} from "react";
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
+  return {
+    "mail":"mail@mail.ch",
+    "pw":"pw",
+    "role":"Apotheker"
+  }
   return fetch('http://localhost:6060/person/login', {
     method: 'POST',
     headers: {
@@ -20,17 +25,20 @@ async function loginUser(credentials) {
       })
 }
 
-function Login({setToken}){
+function Login({setToken, overallRole}){
     const [mail, setMail] = useState();
     const [pw, setPw] = useState();
+    const [role, setRole] = useState();
     const handleSubmit = async e => {
-      console.log('hei')
       e.preventDefault();
       const token = await loginUser({
         mail,
-        pw
-      });
+        pw,
+        role
+      })
       setToken(token);
+      overallRole(token.role);
+
     }
     return (
         <Layout>

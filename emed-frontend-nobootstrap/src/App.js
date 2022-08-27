@@ -11,11 +11,12 @@ import {useState} from "react";
 
 function App() {
     const [token, setToken] = useState();
-
+    const [role, setRole] = useState();
+    console.log(role);
     return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login setToken={setToken}/>} />
+      <Route path="login" element={<Login setToken={setToken} overallRole={setRole}/>} />
       <Route path="rezept-form" element={<RezeptForm />} />
       <Route path="qrcode" element={<Qrcode/>}/>
       <Route path="qrcode-scan" element={<QrcodeScanner/>}/>
