@@ -30,7 +30,7 @@ class QrcodeScanner extends Component {
                     body: scandata
                 })
                     .then(data => {
-                        this.props.navigation.navigate('/pharmacy/scan-verify', {replace: true})
+                        this.props.navigation.navigate('./pharmacy/scan-verify', {replace: true})
                         // gib personendata weiter zu verify
                     })
             }
