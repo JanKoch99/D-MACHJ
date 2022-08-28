@@ -5,12 +5,14 @@ import QRCode from "react-qr-code";
 const ref = React.createRef();
 function Qrcode() {
 
-    return /*(
 
-        <div ref={ref}>
+    return (
+
+        <div ref={ref}>{/*
             <Pdf targetRef={ref} filename="code-example.pdf">
                 {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
             </Pdf>
+            */}
             <h1>Medikamentenverordnung</h1>
             <br/>
             <QRCode value="Hello, World!" />
@@ -26,6 +28,7 @@ function Qrcode() {
             <br/>
             <h6>Verordnung erstellt am DATUM um ZEIT</h6>
             <br/>
+
 
             <table>
                 <tr>
@@ -80,12 +83,7 @@ function Qrcode() {
             <h4>ZSR-Nr.:</h4>
 
         </div>
-
-
-
     );
-    */
-
 }
 
 export default Qrcode;

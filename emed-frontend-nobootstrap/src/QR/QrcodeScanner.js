@@ -28,17 +28,24 @@ class QrcodeScanner extends Component {
   }
 
     fetchAndCompare(scandata) {
-      //vlt evtl scandata vorher parsen?
-      if (this.props.role === 'Apotheker'){
-        return fetch('http://localhost:6060/', {
-            method: 'GET',
-            body: scandata
-        })
-            .then(data => {
-                console.log('hallo')
-                data.json()
-            })
-      }
+        if (this.props.role === 'Apotheker') {
+
+            if (scandata.role !== 'Patient') { //parse scandaten, falls QRCODE nicht von uns
+                // -> Scanerror
+            } else {
+                return fetch('http://https://mighty-plains-35170.herokuapp.com/patientdata/' + scandata.id, {
+                    method: 'GET',
+                    body: scandata
+                })
+                    .then(data => {
+                        this.props.navigation.navigate('/pharmacy/scan-verify')
+                        // gib personendata weiter zu verify
+                    })
+            }
+        }
+        else {
+            // zur downloadseite von den patienten
+        }
     }
 
     setScaned(){
@@ -52,8 +59,6 @@ class QrcodeScanner extends Component {
       height: 240,
       width: 320,
     }
-    const {navigation} = this.props.navigation;
-
 
     return(
               <div>

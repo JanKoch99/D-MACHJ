@@ -7,16 +7,8 @@ import {Component, useState} from "react";
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
-  return {
-    "mail":"mail@mail.ch",
-    "pw":"pw",
-    "role":"Apotheker"
-  }
-  return fetch('http://localhost:6060/person/login', {
+  return fetch('https://mighty-plains-35170.herokuapp.com/person/login', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify(credentials)
   })
       .then(data => {

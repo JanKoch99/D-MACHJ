@@ -12,7 +12,6 @@ import {useState} from "react";
 function App() {
     const [token, setToken] = useState();
     const [role, setRole] = useState();
-    console.log(role);
     return (
     <Routes>
       <Route path="/" element={<Home />} />
