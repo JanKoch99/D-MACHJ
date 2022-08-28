@@ -6,7 +6,7 @@ function emedButton({children, icon, green, gray, primary="primary", size="mediu
     <button
       type="submit"
       className={`
-      ${size === 'medium' && 'py-2 px-5'}
+      ${size === 'medium' && 'pb-1 pt-2 px-5'}
       ${size === 'large' && 'pb-4 pt-5 px-8'}
       ${primary && 'bg-primary text-gray-800'}
       ${green && 'bg-green text-gray-800'}
