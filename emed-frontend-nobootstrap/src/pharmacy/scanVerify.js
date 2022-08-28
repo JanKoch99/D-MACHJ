@@ -3,7 +3,7 @@ import EmedButton from '../components/emedButton';
 import Progress from '../components/layout/progress';
 import { IconUserCheck, IconCheck } from '@tabler/icons'
 import Women from '../illustrations/id-check-women.svg'
-import {useNavigate} from "react-router-dom";
+import {withRouter} from "../withRouter";
 
 class ScanVerify extends Component {
   constructor(props) {
@@ -18,11 +18,11 @@ class ScanVerify extends Component {
         zip: ' ',
         city: ' '
     }
-    this.navigateTo = this.navigateTo.bind(this);
+    this.handleNavigation = this.handleNavigation.bind(this);
   }
-  navigateTo = (whereTo) =>(
-      Promise.resolve().then(() => {this.props.navigation.navigate('whereTo', {replace: true})})
-  )
+  handleNavigation(path) {
+        this.props.navigate(path);
+  }
 
   componentDidMount() {
     fetch('https://mighty-plains-35170.herokuapp.com/patientdata/' + this.props.token.patientDataID, {
@@ -82,16 +82,13 @@ class ScanVerify extends Component {
             }
             navigation={
               <div className="flex flex-col gap-4 w-full">
-                  <EmedButton linkButton = {'/pharmacy/recipe'} green size="large" icon={<IconCheck
-                      className="ml-1"/>} >Verifizieren</EmedButton>
-                  <EmedButton gray size="large" linkButton ={'/home'}>Daten stimmen nicht überein</EmedButton>
+                  <div onClick={() => this.handleNavigation('/pharmacy/recipe')}><EmedButton green size="large" icon={<IconCheck
+                      className="ml-1"/>} >Verifizieren</EmedButton></div>
+                  <div onClick={() => this.handleNavigation('/')}><EmedButton gray size="large" >Daten stimmen nicht überein</EmedButton></div>
               </div>
             }
         />
     )
   }
 }
-export default function (props){
-    const navigation = useNavigate();
-    return <ScanVerify {...props} navigation={navigation} />
-};
+export default withRouter(ScanVerify);

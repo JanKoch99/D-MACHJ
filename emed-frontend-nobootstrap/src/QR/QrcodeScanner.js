@@ -1,14 +1,16 @@
 import React, {Component, useCallback} from 'react'
 import QrReader from 'react-qr-scanner'
-import {useNavigate} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
+import ScanVerify from "../pharmacy/scanVerify";
+import {withRouter} from "../withRouter"
 
 class QrcodeScanner extends Component {
   constructor(props){
     super(props)
     this.state = {
         stoppingScan: false,
-      delay: 500,
-      result: 'No result',
+          delay: 500,
+          result: 'No result',
     }
     this.handleScan = this.handleScan.bind(this);
   }
@@ -30,7 +32,9 @@ class QrcodeScanner extends Component {
                     body: scandata
                 })
                     .then(data => {
-                        this.props.navigation.navigate('./pharmacy/scan-verify', {replace: true})
+                        this.props.setQrscann(data);
+                        this.setState({changePath:true})
+                        this.props.navigate('pharmacy/scan-verify')
                         // gib personendata weiter zu verify
                     })
             }
@@ -46,7 +50,6 @@ class QrcodeScanner extends Component {
           this.setState({
               result: data,
           })
-          this.props.setQrscann(data);
       }
   }
 
@@ -70,10 +73,8 @@ class QrcodeScanner extends Component {
               />
           }
       </div>
+
     )
   }
 }
-export default function (props){
-  const navigation = useNavigate();
-  return <QrcodeScanner {...props} navigation={navigation} />
-};
+export default withRouter(QrcodeScanner);

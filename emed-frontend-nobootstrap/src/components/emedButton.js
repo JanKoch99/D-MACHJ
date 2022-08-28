@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 function emedButton({children, icon, green, gray, primary="primary", size="medium"}, linkButton) {
   return (
@@ -12,18 +13,8 @@ function emedButton({children, icon, green, gray, primary="primary", size="mediu
       ${gray && 'bg-gray-200 text-gray-800'}
       w-full flex justify-center text-base rounded font-semibold font-headline focus:outline-none focus:ring-0`}
     >
-        {linkButton != null &&
-        <a href={linkButton.link}>
             {children}
             { icon }
-        </a>}
-        {linkButton == null &&
-        <div>
-            {children}
-            { icon }
-        </div>
-        }
-
     </button>
   )
 }

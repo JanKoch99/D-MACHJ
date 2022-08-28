@@ -18,7 +18,7 @@ function App() {
       <Route path="login" element={<Login setToken={setToken}/>} />
       <Route path="rezept-form" element={<RezeptForm />} />
       <Route path="qrcode" element={<Qrcode/>}/>
-      <Route path="qrcode-scan" element={<QrcodeScanner setQrscann={setQrscann} overallRole={token.role}/>}/>
+      <Route path="qrcode-scan/" element={<QrcodeScanner setQrscann={setQrscann} overallRole={token.role}/>}/>
       <Route path="pharmacy/scan-fail" element={<ScanFail/>}/>
       <Route path="pharmacy/scan-verify" element={<ScanVerify token={token}/>}/>
       <Route path="pharmacy/recipe" element={<Recipe/>}/>
