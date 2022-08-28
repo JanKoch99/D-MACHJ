@@ -10,17 +10,16 @@ import Recipe from "./pharmacy/recipe";
 import {useState} from "react";
 
 function App() {
-    const [token, setToken] = useState();
-    const [role, setRole] = useState();
+    const [token, setToken] = useState(-1);
     return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login setToken={setToken} overallRole={setRole}/>} />
+      <Route path="login" element={<Login setToken={setToken}/>} />
       <Route path="rezept-form" element={<RezeptForm />} />
       <Route path="qr/qrcode" element={<Qrcode/>}/>
-      <Route path="qr/qrcode-scan" element={<QrcodeScanner overallRole={role}/>}/>
+      <Route path="qr/qrcode-scan" element={<QrcodeScanner overallRole={token.role}/>}/>
       <Route path="pharmacy/scan-fail" element={<ScanFail/>}/>
-      <Route path="pharmacy/scan-verify" element={<ScanVerify/>}/>
+      <Route path="pharmacy/scan-verify" element={<ScanVerify token={token}/>}/>
       <Route path="pharmacy/recipe" element={<Recipe/>}/>
     </Routes>
   );

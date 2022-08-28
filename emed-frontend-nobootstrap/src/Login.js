@@ -12,24 +12,33 @@ async function loginUser(credentials) {
     body: JSON.stringify(credentials)
   })
       .then(data => {
-        console.log('hallo')
+        console.log(data.json())
         data.json()
       })
 }
 
-function Login({setToken, overallRole}){
+function Login({setToken}){
     const [mail, setMail] = useState();
     const [pw, setPw] = useState();
+    const [id, setID] = useState();
     const [role, setRole] = useState();
+    const [patientDataID, setPatientDataID] = useState();
     const handleSubmit = async e => {
       e.preventDefault();
       const token = await loginUser({
+        id,
         mail,
         pw,
+        patientDataID,
         role
+      }).then(token => {
+        if (token !== undefined){
+          setToken(token);
+        }
+        else{
+          console.log(token);
+        }
       })
-      setToken(token);
-      overallRole(token.role);
 
     }
     return (
