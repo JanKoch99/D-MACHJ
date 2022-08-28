@@ -6,6 +6,7 @@ import Qrcode from "./QR/Qrcode";
 import QrcodeScanner from "./QR/QrcodeScanner";
 import ScanFail from "./pharmacy/scanFail";
 import ScanVerify from "./pharmacy/scanVerify";
+import Confirm from "./pharmacy/confirm";
 import Recipe from "./pharmacy/recipe";
 import {useState} from "react";
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="pharmacy/scan-fail" element={<ScanFail/>}/>
       <Route path="pharmacy/scan-verify" element={<ScanVerify token={token}/>}/>
       <Route path="pharmacy/recipe" element={<Recipe/>}/>
+      <Route path="pharmacy/confirm" element={<Confirm/>}/>
     </Routes>
   );
 }
