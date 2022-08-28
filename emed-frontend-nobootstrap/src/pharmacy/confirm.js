@@ -1,13 +1,19 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import EmedButton from '../components/emedButton';
 import Progress from '../components/layout/progress';
+import {useNavigate} from "react-router-dom";
 
 const medications = [
   { id: 1, title: 'Antibiotikum Tabl 800/160mg', quantity: 2},
   { id: 2, title: 'Coop Vitality Paracetamol Tabl 500 mg 20 Stk', quantity: 1}
 ]
 function Confirm() {
-  return (
+    const navigate = useNavigate();
+
+    const handleOnClickWeiter = useCallback(() => navigate('/pharmacy/finish', {replace: false}), [navigate]);
+    const handleOnClickZurück = useCallback(() => navigate('/', {replace: true}), [navigate]);
+
+    return (
     <Progress
       content={
         <div className="mt-16">
@@ -30,8 +36,12 @@ function Confirm() {
       }
       navigation={
         <div className="flex flex-col gap-4 w-full">
-          <EmedButton primary size="large">Zustellung bestätigen</EmedButton>
-          <EmedButton gray size="large">Zurück</EmedButton>
+            <div onClick={handleOnClickWeiter}>
+            <EmedButton primary size="large">Zustellung bestätigen</EmedButton>
+            </div>
+            <div onClick={handleOnClickZurück}>
+            <EmedButton gray size="large">Zurück</EmedButton>
+            </div>
         </div>
       }
     />
