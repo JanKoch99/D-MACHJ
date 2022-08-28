@@ -2,28 +2,20 @@ import React, {Component, useCallback} from 'react'
 import QrReader from 'react-qr-scanner'
 import {useNavigate} from "react-router-dom";
 
-let scandata = '';
-
 class QrcodeScanner extends Component {
   constructor(props){
     super(props)
     this.state = {
-      delay: 1000,
-      scaned: 'false',
+        stoppingScan: false,
+      delay: 500,
       result: 'No result',
     }
-
     this.handleScan = this.handleScan.bind(this);
-    this.setScaned= this.setScaned.bind(this);
   }
 
-  componentDidMount() {
-      this.setScaned();
-  }
   componentDidUpdate(prevProps, prevState, snapshot) {
-      if (prevState !== scandata) {
-          this.setState({result: scandata, scaned: true})
-          this.fetchAndCompare(scandata);
+      if (prevState.result !== this.state.result) {
+          this.fetchAndCompare(this.state.result);
       }
   }
 
@@ -48,30 +40,36 @@ class QrcodeScanner extends Component {
         }
     }
 
-    setScaned(){
-      this.setState({scaned: false});
-  }
+
   handleScan(data){
-        scandata = data;
+      if (data != null) {
+          this.setState({
+              result: data,
+          })
+          this.props.setQrscann(data);
+      }
   }
+
   render(){
     const previewStyle = {
-      height: 240,
-      width: 320,
+      height: 400,
+      width: 500,
     }
-
+      let stopscan = this.state.stoppingScan;
     return(
-              <div>
-                <QrReader
-                    delay={this.state.delay}
-                    style={previewStyle}
-                    onError={e => console.log(e)}
-                    onScan={() => {
-                        this.handleScan()
-                    }}
-                />
-              </div>
+      <div>
+          {!stopscan &&
+              <QrReader
+                  delay={this.state.delay}
+                  style={previewStyle}
+                  onError={(e) => console.error(e)}
+                  onScan={(data) => {
+                      this.handleScan(data)
+                  }}
 
+              />
+          }
+      </div>
     )
   }
 }
