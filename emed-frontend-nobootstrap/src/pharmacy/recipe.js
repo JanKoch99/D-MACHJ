@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import EmedButton from '../components/emedButton';
 import Progress from '../components/layout/progress';
 import { Disclosure } from '@headlessui/react'
 import { IconArrowNarrowRight, IconChevronDown } from '@tabler/icons'
 import ModalDoctor from '../components/modalDoctor'
 import { useState } from 'react'
+import {useNavigate} from "react-router-dom";
 
 const medications = [
   {
@@ -38,6 +39,11 @@ function classNames(...classes) {
 }
 
 function Recipe() {
+  const navigate = useNavigate();
+
+  const handleOnClickWeiter = useCallback(() => navigate('/pharmacy/confirm', {replace: false}), [navigate]);
+  const handleOnClickZurück = useCallback(() => navigate('/', {replace: true}), [navigate]);
+
   const [open, setOpen] = useState(false)
   return (
     <Progress
@@ -107,8 +113,12 @@ function Recipe() {
       }
       navigation={
         <div className="flex flex-col gap-4 w-full">
+          <div onClick={handleOnClickWeiter}>
           <EmedButton primary size="large" icon={<IconArrowNarrowRight/>}>Weiter</EmedButton>
+          </div>
+        <div onClick={handleOnClickZurück}>
           <EmedButton gray size="large">Zurück</EmedButton>
+        </div>
         </div>
       }
     />
