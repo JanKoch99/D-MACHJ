@@ -82,8 +82,9 @@ class ScanVerify extends Component {
             }
             navigation={
               <div className="flex flex-col gap-4 w-full">
-                <div onClick={this.navigateTo('/pharmacy/recipe')}><EmedButton green size="large" icon={<IconCheck className="ml-1"/>}>Verifizieren</EmedButton></div>
-                <div onClick={this.navigateTo('/home')}><EmedButton gray size="large">Daten stimmen nicht überein</EmedButton></div>
+                  <EmedButton linkButton = {'/pharmacy/recipe'} green size="large" icon={<IconCheck
+                      className="ml-1"/>} >Verifizieren</EmedButton>
+                  <EmedButton gray size="large" linkButton ={'/home'}>Daten stimmen nicht überein</EmedButton>
               </div>
             }
         />

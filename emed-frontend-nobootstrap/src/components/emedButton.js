@@ -1,6 +1,6 @@
 import React from 'react'
 
-function emedButton({children, icon, green, gray, primary="primary", size="medium"}) {
+function emedButton({children, icon, green, gray, primary="primary", size="medium"}, linkButton) {
   return (
     <button
       type="submit"
@@ -12,8 +12,18 @@ function emedButton({children, icon, green, gray, primary="primary", size="mediu
       ${gray && 'bg-gray-200 text-gray-800'}
       w-full flex justify-center text-base rounded font-semibold font-headline focus:outline-none focus:ring-0`}
     >
-      {children}
-      { icon }
+        {linkButton != null &&
+        <a href={linkButton.link}>
+            {children}
+            { icon }
+        </a>}
+        {linkButton == null &&
+        <div>
+            {children}
+            { icon }
+        </div>
+        }
+
     </button>
   )
 }
